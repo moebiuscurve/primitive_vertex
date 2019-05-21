@@ -47,7 +47,7 @@ class MESH_OT_primitive_vert_add(bpy.types.Operator):
 def draw_func(self, context):
     layout = self.layout
     layout.operator(MESH_OT_primitive_vert_add.bl_idname, 
-        text="Single Vertex", icon='DECORATE')
+        text="Vertex", icon='DECORATE')
 
 def register():
     bpy.utils.register_class(MESH_OT_primitive_vert_add)
