@@ -36,7 +36,14 @@ class MESH_OT_primitive_vert_add(bpy.types.Operator):
                 
             obj = bpy.data.objects.new("Vert", mesh)
             obj.location = scene.cursor.location
-            scene.collection.objects.link(obj)
+
+            #if bpy.data.collections['Collection'] is not None:
+                #bpy.data.collections['Collection'].objects.link(obj)
+            
+            if bpy.context.collection is not None:
+                bpy.context.collection.objects.link(obj)
+            else:
+                scene.collection.objects.link(obj)
             obj.select_set(True)
             layer.objects.active = obj
             layer.update()
