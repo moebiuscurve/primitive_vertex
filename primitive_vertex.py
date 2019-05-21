@@ -11,8 +11,7 @@ bl_info = {
 }
 
 class MESH_OT_primitive_vert_add(bpy.types.Operator):
-    """Create object with single primitve vertex or 
-        add vertex to existing edit mesh"""
+    """Create object with single primitve vertex or add vertex to existing edit mesh"""
     bl_idname = "mesh.primitive_vert_add"
     bl_label = "Add primitive vertex"
     bl_options = {'REGISTER', 'UNDO'}
