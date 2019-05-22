@@ -20,6 +20,7 @@ class MESH_OT_primitive_vert_add(bpy.types.Operator):
         scene = context.scene
         obj = context.object
         layer = context.view_layer
+        collection = bpy.context.collection
         if (obj is not None and obj.type == 'MESH' and obj.data.is_editmode):
             mesh = obj.data
             bm = bmesh.from_edit_mesh(mesh)
@@ -40,8 +41,8 @@ class MESH_OT_primitive_vert_add(bpy.types.Operator):
             #if bpy.data.collections['Collection'] is not None:
                 #bpy.data.collections['Collection'].objects.link(obj)
             
-            if bpy.context.collection is not None:
-                bpy.context.collection.objects.link(obj)
+            if collection is not None:
+                collection.objects.link(obj)
             else:
                 scene.collection.objects.link(obj)
             obj.select_set(True)
