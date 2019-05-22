@@ -20,7 +20,7 @@ class MESH_OT_primitive_vert_add(bpy.types.Operator):
         scene = context.scene
         obj = context.object
         layer = context.view_layer
-        collection = bpy.context.collection
+        collection = context.collection
         if (obj is not None and obj.type == 'MESH' and obj.data.is_editmode):
             mesh = obj.data
             bm = bmesh.from_edit_mesh(mesh)
