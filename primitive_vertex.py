@@ -25,6 +25,7 @@ class MESH_OT_primitive_vert_add(bpy.types.Operator):
             mesh = obj.data
             bm = bmesh.from_edit_mesh(mesh)
             coords = scene.cursor.location - obj.matrix_world.translation
+            bm.verts.ensure_lookup_table() #just to be safe
             v = bm.verts.new(coords)
             bmesh.update_edit_mesh(mesh, False, True)
         
